@@ -6,7 +6,6 @@ urlpatterns = [
   path('about', About, name="about"),
   path('hello', hello, name="hello"),
   path('blogs', blogs, name='blogs'),
-  # path('footer', footer, name='footer'),
   path('read/<str:id>',read, name="read"),
   path('delete/<str:id>',delete, name="delete"),
   path('create', create, name= "create"),
