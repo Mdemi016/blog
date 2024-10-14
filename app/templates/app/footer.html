@@ -1,0 +1,99 @@
+{%extends 'base.html'%}
+
+
+{%block main%}
+  <!-- <title>Footer</title> -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="footer.css">
+  {% block links %} {% endblock links %}
+  
+  <footer>
+    <div class="footer-custom">
+      <div class="footer-container">
+        <div class="footer-section">
+          <div class="footer-content">
+            <ul class="footer-about">
+              <div class="footer-logo">
+                <img src="logo.png" alt="logo">
+              </div>
+              <p>
+                We approach advertising with a passion for taking on challenges and creating new ones.
+              </p>
+            </ul>
+            <ul class="social-content">
+              <li class="social-item">
+                <a href="#">
+                  <i class='bx bx1-facebook-square'></i>
+                </a>
+              </li>
+              <li class="social-item">
+                <a href="#">
+                  <i class='bx bx1-twitter'></i>
+                </a>
+              </li>
+              <li class="social-item">
+                <a href="#">
+                  <i class='bx bx1-instagram-alt'></i>
+                </a>
+              </li>
+              <li class="social-item">
+                <a href="#">
+                  <i class='bx bx1-linkedin-square'></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer-content">
+            <h4>Quick Link</h4>
+            <ul class="footer-nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Account</a></li>
+              <li><a href="#">Cart</a></li>
+              <li><a href="#">Sitemap</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+        <div class="footer-content">
+          <h4>Get in touch</h4>
+          <ul class="footer-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">CSR</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+      </div>
+      <div class="footer-content">
+        <h4>Contact</h4>
+        <ul class="footer-contact">
+          <li class="femail">
+            <i class='bx bxs-envelope'></i>
+            <span>demi@gmail.com</span>
+          </li>
+          <li class="fphone">
+            <i class='bx bx-phone'></i>
+            <span>(234)234-2342-345</span>
+          </li>
+          <li class="flocation">
+            <i class='bx bxs-map'></i>
+            <span>
+              1 pipeline street'
+              <br>
+              Oyo-state Ibadan, Nigeria. 
+            </span>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="footer-container">
+        <div class="copyright">
+          <div class="copyright-text">
+            <p>Copyright 2024. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+{%endblock main%}
