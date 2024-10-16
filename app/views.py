@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect, reverse
-from app.models import Blog, Comment
+from app.models import Blog, Comment, Contact
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
+from django.core.mail import EmailMessage
+from django.conf import settings
+
 
 
 # Create your views here.
@@ -186,3 +189,41 @@ def login(request):
 def logout(request):
   auth.logout(request)
   return redirect(login)
+
+def contact(request):
+  if request.method == "POST":
+    name = request.POST.get("name")
+    email = request.POST.get("email")
+    message = request.POST.get("message")
+    if not name or not email or not message:
+      messages.error(request, "all field are required")
+      return redirect(contact)
+    send_email = EmailMessage(
+      subject = 'Thank You For Reaching Out',
+      body = f'Hello {name},\n\n We Saw Your Message\n\n',
+      from_email = settings.EMAIL_HOST_USER,
+      to = [email]
+    )
+    send_email.save()
+    new_contact = Contact.objects.create(
+      name=name,
+      email=email,
+      message=message
+    )
+    new_contact.save()
+    subject = f'Hello {name},\n\n We Saw Your Message\n\n',
+    send_email = EmailMessage(
+      subject = 'New Contact Us Message',
+      body = f"Someone filled the form with the following details\n\nName:{name}\n\n\tMessage:{message}",
+      from_email = settings.EMAIL_HOST_USER,
+      to = ["demilademichael16@gmail.com"]
+    )
+    send_email.send()
+    messages.success(request, "Sent Successfully")
+    return redirect(Homepage)
+  return render(request, "app/contact.html")
+
+def custom_404(request, exception):
+  return render(request, "app/error_404.html", status=404)
+def custom_500(request):
+  return render(request, "app/error_500.html", status=500)
